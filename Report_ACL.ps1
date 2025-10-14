@@ -7,4 +7,4 @@ Where-Object {
 } |
 Select-Object Name, DistinguishedName, adminCount,
     @{Name='IsProtected';Expression={$_.ntSecurityDescriptor.AreAccessRulesProtected}} |
-Export-Csv "ProtectedOrAdminCount.csv" -NoTypeInformation
+Export-Csv "ProtectedOrAdminCount.csv" -NoTypeInformation -Encoding UTF8BOM 
