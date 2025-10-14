@@ -11,7 +11,11 @@ Foreach ($Domain in $Forest.Domains) {
     } `
     | Select-Object Name, DistinguishedName, adminCount, @{Name = 'IsProtected'; Expression = { $_.ntSecurityDescriptor.AreAccessRulesProtected } }
 }
-
  
-$Report | Export-Csv "ProtectedOrAdminCount.csv" -NoTypeInformation -Encoding UTF8BOM 
+$Report | Export-Csv "ProtectedOrAdminCount.csv" -NoTypeInformation -Encoding UTF8BOM 
 
+Hi Felix,
+
+About your request, visibility has been generated for objects with direct permissions or inheritance disabled (protected ACLs), in addition to those with adminCount=1.
+
+Regards,
